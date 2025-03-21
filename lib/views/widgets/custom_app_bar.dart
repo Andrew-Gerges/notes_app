@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/views/widgets/custom_icon.dart';
 
+// ignore: must_be_immutable
 class CustomAppBar extends StatelessWidget {
   CustomAppBar({super.key, required this.title, required this.icon, this.onPressed});
   final String title;

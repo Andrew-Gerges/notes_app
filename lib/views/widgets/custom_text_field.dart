@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/constants.dart';
 
+// ignore: must_be_immutable
 class CustomTextField extends StatelessWidget {
   CustomTextField(
       {super.key, required this.hint, this.maxLines = 1, this.onSaved,this.onChanged});
