@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/views/widgets/custom_search_icon.dart';
+import 'package:notes_app/views/widgets/custom_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key, required this.title, required this.icon});
+  CustomAppBar({super.key, required this.title, required this.icon, this.onPressed});
   final String title;
   final IconData icon;
+  void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,7 +19,8 @@ class CustomAppBar extends StatelessWidget {
             ),
           ),
           Spacer(),
-          CustomSearchIcon(
+          CustomIcon(
+            onPressed: onPressed,
             icon: icon,
           ),
         ],
