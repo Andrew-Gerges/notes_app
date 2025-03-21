@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:notes_app/constants.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
-
+  const NoteItem({super.key, required this.note});
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return const EditNoteView();
+          return EditNoteView(
+            note: note,
+          );
         }));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
           decoration: BoxDecoration(
-            color: kPrimaryColor,
+            color: Color(note.color),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Padding(
@@ -28,7 +30,7 @@ class NoteItem extends StatelessWidget {
               children: [
                 ListTile(
                   title: Text(
-                    'Flutter Note',
+                    note.title,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                   subtitle: Padding(
@@ -36,7 +38,7 @@ class NoteItem extends StatelessWidget {
                       vertical: 16,
                     ),
                     child: Text(
-                      'Flutter Notes Subtitle or Description or Somthing else - Flutter Notes Subtitle or Description or Somthing else',
+                      note.content,
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'asset: lib/assets/fonts/Poppins-Thin.ttf',
@@ -60,7 +62,7 @@ class NoteItem extends StatelessWidget {
                     top: 16,
                   ),
                   child: Text(
-                    'March 10 2025',
+                    note.date,
                     style: TextStyle(
                       // fontWeight: FontWeight.w300,
                       color: Colors.white.withValues(alpha: 0.5),
