@@ -15,6 +15,7 @@ void main() async {
   await Hive.openBox<NoteModel>(kNotesBox);
 
   runApp(const NotesApp());
+  // till further notice
 }
 
 class NotesApp extends StatelessWidget {
@@ -34,5 +35,5 @@ class NotesApp extends StatelessWidget {
         home: const NotesView(),
       ),
     );
-  }
+  } 
 }
